@@ -1,0 +1,29 @@
+#!/bin/bash
+
+if [ -z $1 ]
+then
+  echo "Ups! Need ONE argument: path to .app"
+else
+  echo "seraching..."
+  appName="macdeployqt"
+  declare -a array=(`find ~ -name ${appName}`);
+  mdpt=${array[0]};
+  if [ -z $mdpt ]
+  then
+    echo "Ohh, no! NO SUCH ${appName} :("
+  else
+    if [[ "$mdpt" == *"bin"* ]]
+    then
+      args="-dmg -verbose=3";
+      echo "${mdpt}";
+      echo "${args}";
+      echo "$1";
+      echo "deploing..."
+      `${mdpt} $1 ${args}`
+      echo ${mdpt}
+      echo "Thank you! SUCCESS :)"
+    else
+      echo "Emm... Incorrect path?! :/"
+    fi
+  fi
+fi
