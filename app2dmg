@@ -20,7 +20,6 @@ else
       echo "$1";
       echo "deploing..."
       `${mdpt} $1 ${args}`
-      echo ${mdpt}
       echo "Thank you! SUCCESS :)"
     else
       echo "Emm... Incorrect path?! :/"
